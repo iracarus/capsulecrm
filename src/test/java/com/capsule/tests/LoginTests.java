@@ -10,7 +10,7 @@ public class LoginTests extends TestBase {
     @Test
     public void login() {
         loginPage = new LoginPage();
-        System.out.println(TestBase.driver.getTitle());
+        System.out.println(driver.getTitle());
         loginPage.login();
     }
 }
