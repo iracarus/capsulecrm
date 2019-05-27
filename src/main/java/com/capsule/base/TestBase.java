@@ -1,12 +1,10 @@
 package com.capsule.base;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,8 +13,9 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
+    public WebDriver driver;
+    WebDriverWait wait;
     public static Properties props;
-    public static WebDriver driver;
 
     public TestBase() {
         FileInputStream inputFile;
@@ -31,53 +30,23 @@ public class TestBase {
         }
     }
 
+    @BeforeSuite
+    public void startUpBrowser()
+    {
+        driver = DriverFactory.getChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().fullscreen();
+        wait = new WebDriverWait(driver, 5);
+    }
 
     @BeforeMethod
-    public void setup()
-    {
-        TestBase.initialize();
+    public void goToLogin() {
+        driver.get("https://starwars.capsulecrm.com/login");
     }
 
-    @AfterMethod
-    public void end() {
-        tearDown();
-    }
-
-
-    /**
-     * Initializes all the basic components like driver, properties file etc
-     * Takes care of the operating system to load relevant drivers/files
-     */
-    public static void initialize()
+    @AfterSuite(alwaysRun = true)
+    public void closeBrowser()
     {
-
-        ChromeOptions options = new ChromeOptions();
-
-        if(props.getProperty("browser").equalsIgnoreCase("chrome"))
-        {
-            options.addArguments("--disable-notifications");
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver(options);
-        }
-        else if(props.getProperty("browser").equalsIgnoreCase("firefox"))
-        {
-            WebDriverManager.firefoxdriver().setup();
-            driver = new FirefoxDriver();
-        }
-
-        driver.manage().window().maximize();
-        driver.manage().deleteAllCookies();
-        driver.manage().timeouts().pageLoadTimeout(Long.parseLong(props.getProperty("PAGE_LOAD_TIMEOUT")), TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(Long.parseLong(props.getProperty("IMPLICITLY_WAIT")), TimeUnit.SECONDS);
-        driver.get(props.getProperty("url"));
-
-    }
-
-    /**
-     * Quits the driver to close the browser
-     */
-    public void tearDown()
-    {
-        //driver.quit();
+        driver.quit();
     }
 }
