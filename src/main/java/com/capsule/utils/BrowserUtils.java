@@ -16,6 +16,9 @@ import java.io.File;
 import java.io.IOException;
 
 public class BrowserUtils {
+    public static int SearchTable() {
+        return 2;
+    }
 //    private static final Logger logger4j= LogManager.getLogger(OtherUtils.padLeft("[" + BrowserUtils.class + "]", 45) );
 //
 //    public static void scrollToTop() {

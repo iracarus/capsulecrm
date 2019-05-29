@@ -15,6 +15,9 @@ public class HeaderSection {
     @FindBy(xpath = "//span[contains(text(),'People')]/parent::a")
     WebElement peopleLink;
 
+    @FindBy(xpath = "//span[contains(text(),'Cases')]/parent::a")
+    WebElement casesLink;
+
     private HeaderSection()
     {
         PageFactory.initElements(driver, this);
@@ -24,6 +27,9 @@ public class HeaderSection {
         {
             case "People" :
                 peopleLink.click();
+                break;
+            case "Cases" :
+                casesLink.click();
                 break;
         }
     }

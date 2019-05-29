@@ -16,6 +16,15 @@ public class PeopleTests {
     @Test
     public void addPeopleTest()
     {
+
+        String title = "Mr";
+        String firstName = "Tarzan";
+        String lastName = "Wangdu";
+        String jobTitle = "Software Engineer";
+        String organization = "Jungle Enterprises";
+        String phoneNumber = "1435435435";
+        String emailAddress = "test@testing.com";
+
         loginPage.goTo();
         loginPage.setUsername("darthvader")
                 .setPassword("Selenium12#")
@@ -25,13 +34,13 @@ public class PeopleTests {
         partiesPage.goTo();
         partiesPage.selectList("People")
                 .addPerson()
-                .setTitle("Mr")
-                .setFirstName("Tarzan")
-                .setLastName("Wangdu")
-                .setJobTitle("Software Engineer")
-                .setOrganization("Jungle Enterprises")
-                .setPhoneNumber("1435435435")
-                .setEmailAddress("test@testing.com")
+                .setTitle(title)
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setJobTitle(jobTitle)
+                .setOrganization(organization)
+                .setPhoneNumber(phoneNumber)
+                .setEmailAddress(emailAddress)
                 .setAddress(AddressType.HOME, "Test Stree, Sector 62, Noida", "Delhi", "New Delhi", "110008", "India")
                 .save();
 
@@ -39,7 +48,7 @@ public class PeopleTests {
 
         partiesPage.goTo();
         partiesPage.isAt();
-
-
+        partiesPage.selectPerson(title, firstName, lastName, jobTitle, organization, phoneNumber, emailAddress)
+                    .deletePerson();
     }
 }
