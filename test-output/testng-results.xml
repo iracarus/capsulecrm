@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Capsule CRM Automation" duration-ms="21493" started-at="2019-05-30T21:17:58 IST" finished-at="2019-05-30T21:18:20 IST">
+    <groups>
+    </groups>
+    <test name="Regression" duration-ms="4368" started-at="2019-05-30T21:17:58 IST" finished-at="2019-05-30T21:18:03 IST">
+      <class name="com.capsule.tests.LoginTests">
+        <test-method status="PASS" signature="login()[pri:0, instance:com.capsule.tests.LoginTests@4149c063]" name="login" duration-ms="4325" started-at="2019-05-30T21:17:58 IST" finished-at="2019-05-30T21:18:03 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+      </class> <!-- com.capsule.tests.LoginTests -->
+    </test> <!-- Regression -->
+    <test name="Regression1" duration-ms="7836" started-at="2019-05-30T21:18:03 IST" finished-at="2019-05-30T21:18:11 IST">
+      <class name="com.capsule.tests.CasesTests">
+        <test-method status="PASS" signature="addCaseTest()[pri:0, instance:com.capsule.tests.CasesTests@13df2a8c]" name="addCaseTest" duration-ms="7834" started-at="2019-05-30T21:18:03 IST" finished-at="2019-05-30T21:18:11 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addCaseTest -->
+      </class> <!-- com.capsule.tests.CasesTests -->
+    </test> <!-- Regression1 -->
+    <test name="Regression2" duration-ms="9063" started-at="2019-05-30T21:18:11 IST" finished-at="2019-05-30T21:18:20 IST">
+      <class name="com.capsule.tests.PeopleTests">
+        <test-method status="PASS" signature="goToLogin()[pri:0, instance:com.capsule.tests.PeopleTests@6ca18a14]" name="goToLogin" is-config="true" duration-ms="2436" started-at="2019-05-30T21:17:56 IST" finished-at="2019-05-30T21:17:58 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToLogin -->
+        <test-method status="PASS" signature="addPeopleTest()[pri:0, instance:com.capsule.tests.PeopleTests@6ca18a14]" name="addPeopleTest" duration-ms="9062" started-at="2019-05-30T21:18:11 IST" finished-at="2019-05-30T21:18:20 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addPeopleTest -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.capsule.tests.PeopleTests@6ca18a14]" name="closeBrowser" is-config="true" duration-ms="303" started-at="2019-05-30T21:18:20 IST" finished-at="2019-05-30T21:18:20 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- com.capsule.tests.PeopleTests -->
+    </test> <!-- Regression2 -->
+  </suite> <!-- Capsule CRM Automation -->
+</testng-results>

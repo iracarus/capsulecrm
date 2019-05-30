@@ -2,9 +2,7 @@ package com.capsule.base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,23 +28,25 @@ public class TestBase {
         }
     }
 
-    @BeforeSuite
     public void startUpBrowser()
     {
+
+    }
+
+    @BeforeSuite
+    public void goToLogin() {
+        //driver = null;
         driver = DriverFactory.getChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().fullscreen();
         wait = new WebDriverWait(driver, 5);
-    }
-
-    @BeforeMethod
-    public void goToLogin() {
         driver.get("https://starwars.capsulecrm.com/login");
     }
 
     @AfterSuite(alwaysRun = true)
     public void closeBrowser()
     {
-        driver.quit();
+        driver.close();
+        //driver = null;
     }
 }

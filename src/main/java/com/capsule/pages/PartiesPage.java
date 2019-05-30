@@ -32,7 +32,7 @@ public class PartiesPage {
     @FindBy(xpath = "//table[contains(@class, 'simple-table list-results')]")
     WebElement tableParties;
 
-    @FindBy(xpath = "//span[@id='ember131']")
+    @FindBy(xpath = "//span[contains(@class , 'actions-delete')]")
     WebElement btnDeleteParty;
 
     @FindBy(xpath = "//input[@class='form-input-checkbox bulk-delete-modal-checkbox']")

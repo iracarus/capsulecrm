@@ -10,7 +10,7 @@ public class LoginTests extends TestBase {
     HomePage homePage = HomePage.getHomePage();
 
     @Test
-    public void login() throws InterruptedException {
+    public void login() {
         loginPage.goTo();
         loginPage.setUsername("darthvader")
                 .setPassword("Selenium12#")

@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Capsule CRM Automation">
+    <test name="Regression"   >
+        <classes>
+            <class name="com.capsule.tests.LoginTests" />
+        </classes>
+    </test>
+    <test name="Regression1"   >
+        <classes>
+            <class name="com.capsule.tests.CasesTests" />
+        </classes>
+    </test>
+    <test name="Regression2"   >
+        <classes>
+            <class name="com.capsule.tests.PeopleTests" />
+        </classes>
+    </test>
+</suite>

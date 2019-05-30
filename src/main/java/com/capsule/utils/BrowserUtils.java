@@ -4,16 +4,14 @@ import com.capsule.base.TestBase;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class BrowserUtils {
     public static int SearchTable() {
@@ -99,4 +97,28 @@ public class BrowserUtils {
 //            System.out.println(e.getMessage());
 //        }
 //    }
+
+    public static void selectOptionWithText(WebDriver driver, WebElement expElement, String textToSelect) {
+        WebDriverWait wait = new WebDriverWait(driver, 40);
+        try {
+            //WebElement autoOptions = driver.findElement(By.id("ui-id-1"));
+
+            wait.until(ExpectedConditions.visibilityOf(expElement));
+
+            List<WebElement> optionsToSelect = expElement.findElements(By.tagName("li"));
+            for(WebElement option : optionsToSelect){
+                if(option.getText().contains(textToSelect)) {
+                    System.out.println("Trying to select: "+textToSelect);
+                    option.click();
+                    break;
+                }
+            }
+
+        } catch (NoSuchElementException e) {
+            System.out.println(e.getStackTrace());
+        }
+        catch (Exception e) {
+            System.out.println(e.getStackTrace());
+        }
+    }
 }
